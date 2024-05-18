@@ -160,16 +160,16 @@ with DAG(
         sql="sql/mart.d_city.sql")
 
     update_f_sales = PostgresOperator(
-        task_id='update_f_sales_2',
+        task_id='update_f_sales',
         postgres_conn_id=postgres_conn_id,
-        sql="sql/mart.f_sales.sql",
+        sql="sql/mart.f_sales_2.sql",
         parameters={"date": {business_dt}}
     )
 
     update_f_customer_retention = PostgresOperator(
-        task_id='update_f_customer_retention_2',
+        task_id='update_f_customer_retention',
         postgres_conn_id=postgres_conn_id,
-        sql="sql/mart.f_customer_retention.sql",
+        sql="sql/mart.f_customer_retention_2.sql",
         parameters={"date": {business_dt}}
     )
 
